@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pick your atomic date">
+    <title>AtOMo</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/module.esm.js",
+                "luxon": "https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/es6/luxon.js"
+            }
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <section class="uk-section uk-section-small">
+            <div class="uk-container uk-container-xsmall">
+                <h1 class="atomo atomo--lg" x-data="atomo([85,8,42])">
+                    <div class="atomo__elements">
+                        <template x-for="element in elements">
+                            <div class="atomo__element" :class="`atomo__element--${element.type}`" x-data="atomoElement(element)">
+                                <span class="atomo__number" x-text="element.number"></span>
+                                <span class="atomo__symbol" x-text="element.symbol"></span>
+                                <span class="atomo__name" x-text="element.name"></span>
+                            </div>
+                        </template>
+                    </div>
+                </h1>
+                <h3>
+                    <strong>AtOMo</strong> - the only date picker with atomic precision!
+                </h3>
+            </div>
+        </section>
+    </header>
+
+    <main class="site-main" uk-height-viewport="expand: true">
+        <section class="uk-section uk-section-small">
+            <div class="uk-container uk-container-xsmall">
+                
+                <div class="atomo atomo--separator" x-data="atomo([0,0,0,0])">
+                    <div class="atomo__elements">
+                        <template x-for="(element, i) in elements">
+                            <div class="atomo__element" :class="`atomo__element--${element.type}`" x-data="atomoElement(element)" x-modelable="id" x-model="elements[i]">
+                                <span class="atomo__number" x-text="id"></span>
+                                <span class="atomo__symbol" x-text="element.symbol"></span>
+                                <span class="atomo__name" x-text="element.name"></span>
+                                <select class="atomo__select" x-model.number="id">
+                                    <template x-for="element in $store.elements.options" :key="element.number">
+                                        <option x-text="element.name" :value="element.number"></option>
+                                    </template>
+                                </select>
+                            </div>
+                        </template>
+                    </div>
+
+                    <h3 x-text="date"></h3>
+                </div>
+
+            </div>
+        </section>
+	</main>
+
+    <footer>
+        <section class="uk-section uk-section-small">
+            <div class="uk-container uk-container-xsmall">
+                <p class="uk-text-muted">Power by Failwind</p>
+            </div>
+        </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit-icons.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

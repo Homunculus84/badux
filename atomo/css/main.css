@@ -1,0 +1,233 @@
+/* Variables
+--------------------------------------------- */
+
+:root {
+	--fnt-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+	--clr-light: #ffffff;
+	--clr-dark: #3f3f3f;
+	--clr-none: #e1e1e1; 
+	--clr-alkali-metal: #b83e3e; 
+	--clr-alkaline-earth-metal: #569b79;
+	--clr-transition-metal: #b8673e;
+	--clr-transactinide: #76519c;
+	--clr-metal: #727272;
+	--clr-metalloid: #3b5cb8;
+	--clr-nonmetal: #82ca2f;
+	--clr-halogen: #b468a2;
+	--clr-noble-gas: #4c8ab3;
+	--clr-lanthanide: #a49c30;
+	--clr-actinide: #8d5acc;
+}
+
+/* BASE
+--------------------------------------------- */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+	color: var(--clr-dark);
+	font-family: var(--fnt-family);
+    font-size: 18px;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+	background-color: var(--clr-light);
+	line-height: 1.2;
+	text-align: center; 
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--fnt-family);
+	font-weight: normal;
+}
+
+/* Layout
+--------------------------------------------- */
+
+.site-header {
+
+}
+
+.site-main {
+
+}
+
+.site-footer {
+
+}
+
+/* Components
+--------------------------------------------- */
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.logo__icon {
+	width: 48px;
+	height: auto;
+}
+
+.atomo {
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+.atomo--lg {
+	font-size: 1.5rem;
+}
+
+.atomo__elements {
+	display: flex;
+	align-items: center;
+	flex-wrap: nowrap;
+	gap: .25rem;
+	justify-content: center;
+	width: 100%;
+}
+
+.atomo__element {
+	color: var(--clr-light);
+	display: flex;
+	flex-direction: column;
+	width: 4.5em;
+	background-color: var(--clr-none);
+	position: relative;
+}
+
+.atomo--separator .atomo__element:nth-of-type(1),
+.atomo--separator .atomo__element:nth-of-type(2) {
+	margin-right: 1rem;
+}
+
+.atomo--separator .atomo__element:nth-of-type(1)::after,
+.atomo--separator .atomo__element:nth-of-type(2)::after {
+	content: '/';
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	padding: 0 .5rem;
+	transform: translateY(-50%);
+	display: block;
+	color: rgba(0,0,0,0.25);
+}
+
+.atomo__select {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	-webkit-appearance: none;
+	opacity: 0;
+}
+
+.atomo__number {
+	flex: 0 1 auto;
+	font-size: .7em;
+	padding: .1em;
+	background-color: rgba(0, 0, 0, .25);
+	opacity: .5;
+}
+
+.atomo__symbol {
+	flex: 1 1 auto;
+	padding: .2em;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.atomo__name {
+	flex: 0 1 auto;
+	font-size: .5em;
+	padding-bottom: .5em;
+}
+
+.atomo__element--none {
+  	background-color: var(--clr-none);
+	color: rgba(0,0,0,0.25);
+}
+
+.atomo__element--none > .atomo__number {
+	color: rgba(0,0,0,0);
+}
+
+.atomo__element--none > .atomo__symbol::after {
+	display: block;
+	color: rgba(0,0,0,0.25);
+}
+
+.atomo__element--none:nth-of-type(1) > .atomo__symbol::after {
+	content: 'DD';
+}
+
+.atomo__element--none:nth-of-type(2) > .atomo__symbol::after {
+	content: 'MM';
+}
+
+.atomo__element--none:nth-of-type(3) > .atomo__symbol::after {
+	content: 'YY';
+}
+
+.atomo__element--none:nth-of-type(4) > .atomo__symbol::after {
+	content: 'YY';
+}
+
+.atomo__element--alkali-metal {
+  background-color: var(--clr-alkali-metal);
+}
+
+.atomo__element--alkaline-earth-metal {
+  background-color: var(--clr-alkaline-earth-metal);
+}
+
+.atomo__element--transition-metal {
+  background-color: var(--clr-transition-metal);
+}
+
+.atomo__element--transactinide {
+  background-color: var(--clr-transactinide);
+}
+
+.atomo__element--metal {
+  background-color: var(--clr-metal);
+}
+
+.atomo__element--metalloid {
+  background-color: var(--clr-metalloid);
+}
+
+.atomo__element--nonmetal {
+  background-color: var(--clr-nonmetal);
+}
+
+.atomo__element--halogen {
+  background-color: var(--clr-halogen);
+}
+
+.atomo__element--noble-gas {
+  background-color: var(--clr-noble-gas);
+}
+
+.atomo__element--lanthanide {
+  background-color: var(--clr-lanthanide);
+}
+
+.atomo__element--actinide {
+  background-color: var(--clr-actinide);
+}
+
+/* Helpers
+--------------------------------------------- */
+
+/* Overrides
+--------------------------------------------- */

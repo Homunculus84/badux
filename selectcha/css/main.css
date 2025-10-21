@@ -1,0 +1,175 @@
+/* Variables
+--------------------------------------------- */
+
+:root {
+	--fnt-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* BASE
+--------------------------------------------- */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+	color: #828995;
+	font-family: var(--fnt-family);
+    font-size: 18px;
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+	background-color: #eeeeee;
+	line-height: 1.2;
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--fnt-family);
+	color: #828995;
+	font-weight: lighter;
+}
+
+a {
+	color: #1578ce;
+}
+
+a:hover {
+	color: #1578ce;
+	text-decoration: none;
+}
+
+em {
+	font-style: normal;
+	color: #1578ce;
+	font-weight: bold;
+}
+
+/* Layout
+--------------------------------------------- */
+
+.site-header {
+	padding: 3rem 0;
+	text-align: center;
+}
+
+.site-main {
+	text-align: center;
+}
+
+/* Components
+--------------------------------------------- */
+
+.selectcha {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: .5rem;
+}
+
+.selectcha__field {
+	width: auto;
+	position: relative;
+}
+
+.selectcha__input {
+	font-size: 1.2rem;
+	font-family: var(--fnt-family);
+	padding: .5rem;
+	background: #ffffff;
+	color: #828995;
+	border: 1px solid #828995;
+	border-radius: 0;
+	width: 180px;
+	text-align: center;
+	transition: border-color .25s ease;
+}
+
+.selectcha__input:focus,
+.selectcha__input:focus-visible {
+	outline: 4px solid #1578ce;
+	border-color: #1578ce;
+}
+
+.selectcha__instructions {
+	background-color: #1578ce;
+	color: #ffffff;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	font-weight: lighter;
+	text-align: left;
+	font-size: .9rem;
+	line-height: 0.5;
+}
+
+.selectcha__grid {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 4px;
+	margin: 1rem 0;
+}
+
+.selectcha__square {
+	aspect-ratio: 1;
+	width: 100%;
+	border: 1px solid #828995;
+	position: relative;
+	margin-top: .5rem;
+}
+
+.selectcha__square label {
+	position: absolute;
+	bottom: 100%;
+	left: -1px;
+	right: -1px;
+	color: #828995;
+	font-size: .75rem;
+	text-align: center;
+}
+
+.selectcha__square-content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--bg-color, #eeeeee);
+	border: 0;
+	-webkit-appearance: none;
+	font-family: Monospace, Georgia, serif;
+}
+
+.selectcha__square-content > * {
+	font-size: var(--fn-size, 1rem);
+	color: var(--fn-color, #000000);
+	transform: rotate(var(--tr-rotate)) skew(var(--tr-skew-x), var(--tr-skew-y));
+}
+
+.button {
+    background: #1578ce;
+    color: #ffffff;
+    margin: 0;
+	padding: .75rem;
+    font-family: var(--fnt-family);
+	font-size: 1rem;
+    border-radius: 0;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: .25s ease;
+    transition-property: all;
+    -webkit-appearance: none;
+}
+
+/* Helpers
+--------------------------------------------- */
+
+
+/* Overrides
+--------------------------------------------- */
+
+.uk-modal-dialog {
+	width: 380px;
+}

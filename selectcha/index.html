@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Why bother with a CAPTCHA when selecting a date can be just as effective?">
+    <title>Selectcha</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/module.esm.js",
+                "luxon": "https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/es6/luxon.js"
+            }
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/css/uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="uk-container uk-container-xsmall">
+            <h1>Selec<em>tcha</em></h1>
+            <p>Why bother with a <em>CAPTCHA</em> when selecting a date can be just as effective?</p>
+        </div>
+    </header>
+
+    <main class="site-main" uk-height-viewport="expand: true">
+        <section class="uk-section">
+            <div class="uk-container uk-container-xsmall">
+
+                <p class="uk-text-italic">Please pick your date and prove you are <em>human</em></p>
+                <div class="selectcha-container" x-data="selectcha">
+                    <div class="selectcha">
+                        <div class="selectcha__field">
+                            <input @click="open" class="selectcha__input" type="text" x-model="date" readonly>
+                            <div class="selectcha__modal selectcha__modal--day" x-ref="modal" uk-modal="container: false">
+                                <div class="uk-modal-dialog uk-modal-body">
+                                    <div class="selectcha__instructions">
+                                        <div>
+                                            Select all squares that<br>
+                                            <strong class="uk-text-large">do not match</strong><br>
+                                            the desired date.
+                                        </div>
+                                    </div>
+
+                                    <div class="selectcha__grid">
+                                        <template x-for="(digit, index) in rawDate.day">
+                                            <div class="selectcha__square" x-data="selectchaSquare" x-modelable="value" x-model="rawDate.day[index]">
+                                                <label>D</label>
+                                                <button class="selectcha__square-content" x-show="enabled" @click="select" x-transition.opacity.duration.2000ms :disabled="!enabled">
+                                                    <span x-text="value"></span>
+                                                </button>
+                                            </div>
+                                        </template>
+
+                                        <template x-for="(digit, index) in rawDate.month">
+                                            <div class="selectcha__square" x-data="selectchaSquare" x-modelable="value" x-model="rawDate.month[index]">
+                                                <label>M</label>
+                                                <button class="selectcha__square-content" x-show="enabled" @click="select" x-transition.opacity.duration.2000ms :disabled="!enabled">
+                                                    <span x-text="value"></span>
+                                                </button>
+                                            </div>
+                                        </template>
+                                    </div>
+
+                                    <div class="selectcha__grid">
+                                        <template x-for="(digit, index) in rawDate.year">
+                                            <div class="selectcha__square" x-data="selectchaSquare" x-modelable="value" x-model="rawDate.year[index]">
+                                                <label>Y</label>
+                                                <button class="selectcha__square-content" x-show="enabled" @click="select" x-transition.opacity.duration.2000ms :disabled="!enabled">
+                                                    <span x-text="value"></span>
+                                                </button>
+                                            </div>
+                                        </template>
+                                    </div>
+
+                                    <button class="uk-width-1-1 uk-button uk-button-primary" type="button" @click="submit">Confirm</button>
+
+                                    <div class="uk-alert uk-alert-danger" x-show="error != ''" x-text="error"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+	</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.24.2/dist/js/uikit-icons.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
