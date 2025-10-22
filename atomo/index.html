@@ -27,7 +27,7 @@
                     <div class="atomo__elements">
                         <template x-for="element in elements">
                             <div class="atomo__element" :class="`atomo__element--${element.type}`" x-data="atomoElement(element)">
-                                <span class="atomo__number" x-text="element.number"></span>
+                                <span class="atomo__number" x-text="element.number.toString().padStart(2, '0')"></span>
                                 <span class="atomo__symbol" x-text="element.symbol"></span>
                                 <span class="atomo__name" x-text="element.name"></span>
                             </div>
@@ -49,7 +49,7 @@
                     <div class="atomo__elements">
                         <template x-for="(element, i) in elements">
                             <div class="atomo__element" :class="`atomo__element--${element.type}`" x-data="atomoElement(element)" x-modelable="id" x-model="elements[i]">
-                                <span class="atomo__number" x-text="element.number.toString().padStart(2, "0")"></span>
+                                <span class="atomo__number" x-text="element.number.toString().padStart(2, '0')"></span>
                                 <span class="atomo__symbol" x-text="element.symbol"></span>
                                 <span class="atomo__name" x-text="element.name"></span>
                                 <select class="atomo__select" x-model.number="id">
